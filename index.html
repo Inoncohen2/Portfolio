@@ -7,6 +7,10 @@
     <title>Inon Cohen - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
   </head>
   <body>
     <nav id="desktop-nav">
@@ -37,10 +41,10 @@
       </div>
     </nav>
     <section id="profile">
-      <div class="section__pic-container">
+      <div class="section__pic-container" data-aos="zoom-in">
         <img src="./assets/profile-pic.png" alt="Inon Cohen profile picture" />
       </div>
-      <div class="section__text">
+      <div class="section__text" data-aos="fade-up">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Inon Cohen</h1>
         <p class="section__text__p2">
@@ -74,10 +78,10 @@
       </div>
     </section>
     <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
+      <p class="section__text__p1" data-aos="fade-right">Get To Know More</p>
+      <h1 class="title" data-aos="fade-right">About Me</h1>
       <div class="section-container">
-        <div class="section__pic-container">
+        <div class="section__pic-container" data-aos="zoom-in">
           <img
             src="./assets/about-pic.png"
             alt="About Picture"
@@ -85,7 +89,7 @@
           />
         </div>
         <div class="about-details-container">
-          <div class="about-containers">
+          <div class="about-containers" data-aos="fade-left">
             <div class="details-container">
               <img
                 src="./assets/experience.png"
@@ -105,7 +109,7 @@
               <p>B.Sc. in Electrical & Electronics Engineering<br />GPA: 97</p>
             </div>
           </div>
-          <div class="text-container">
+          <div class="text-container" data-aos="fade-up">
             <p>
               I specialize in VLSI, AI systems, and real-time image processing.
               My projects include AI-driven object detection, smart systems, and hardware-software integration.
@@ -114,28 +118,15 @@
         </div>
       </div>
     </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="details-container">
-          <h2 class="experience-sub-title">Professional Experience</h2>
-          <article>
-            <h3>System Engineer at IAI</h3>
-            <p>Managing system integrations and technical requirements for advanced aerospace projects.</p>
-          </article>
-          <article>
-            <h3>Teaching Assistant at Ariel University</h3>
-            <p>Provided guidance in Physics courses, enhancing student performance through tutoring and mentoring.</p>
-          </article>
-        </div>
-      </div>
-    </section>
     <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
+      <p class="section__text__p1" data-aos="fade-up">Browse My Recent</p>
+      <h1 class="title" data-aos="fade-up">Projects</h1>
       <div class="experience-details-container">
-        <div class="details-container color-container">
+        <div
+          class="details-container color-container"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div class="article-container">
             <img
               src="./assets/project-1.png"
@@ -156,42 +147,17 @@
             </button>
           </div>
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img
-              src="./assets/project-2.png"
-              alt="Smart Home System"
-              class="project-img"
-            />
-          </div>
-          <h2 class="experience-sub-title project-title">Smart Home System</h2>
-          <p>
-            Designed and implemented a fully functional smart home with integrated hardware and software systems.
-          </p>
-        </div>
       </div>
     </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email Icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn Icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/inoncohen98">LinkedIn</a></p>
-        </div>
-      </div>
+      <form id="contact-form" data-aos="fade-up">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
     </section>
     <footer>
       <nav>
@@ -206,6 +172,10 @@
       </nav>
       <p>Copyright &#169; 2024 Inon Cohen. All Rights Reserved.</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
