@@ -11,7 +11,51 @@
     height: fit-content;
   }
 }
+/* TABLET VIEW */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    font-size: 1rem;
+    gap: 1rem;
+  }
 
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+
+  #contact-form {
+    padding: 1rem;
+  }
+}
+
+/* MOBILE VIEW */
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  #contact-form {
+    padding: 0.5rem;
+    width: 90%;
+  }
+}
 @media screen and (max-width: 1200px) {
   #desktop-nav {
     display: none;
