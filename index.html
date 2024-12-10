@@ -43,6 +43,11 @@
       .language-switcher button.active {
         background-color: #28a745;
       }
+
+      /* Reduce spacing between sections */
+      section {
+        margin: 40px 0;
+      }
     </style>
     <script>
       function toggleLanguage(lang) {
@@ -136,6 +141,9 @@
     <section id="about">
       <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
       <div class="section-container">
+        <div class="section__pic-container" data-aos="zoom-in">
+          <img src="./assets/about-pic.png" alt="About Picture" class="about-pic" />
+        </div>
         <div class="about-details-container">
           <div class="text-container" data-aos="fade-up">
             <p
