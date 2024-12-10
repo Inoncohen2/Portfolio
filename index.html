@@ -11,13 +11,37 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
+    <style>
+      /* Language switcher styles */
+      .language-switcher {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .language-switcher button {
+        padding: 5px 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .language-switcher button:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
     <script>
       function toggleLanguage(lang) {
         const allTexts = document.querySelectorAll("[data-en], [data-he]");
         allTexts.forEach((el) => {
           el.textContent = el.getAttribute(`data-${lang}`);
         });
-        document.documentElement.lang = lang; // Change the `lang` attribute
+        document.documentElement.lang = lang;
       }
     </script>
   </head>
@@ -42,51 +66,16 @@
           </li>
         </ul>
       </div>
-      <div class="language-switcher">
-        <button onclick="toggleLanguage('en')">English</button>
-        <button onclick="toggleLanguage('he')">עברית</button>
-      </div>
     </nav>
 
-    <!-- Profile Section -->
-    <section id="profile">
-      <div class="section__pic-container" data-aos="zoom-in">
-        <img src="./assets/profile-pic.png" alt="Inon Cohen profile picture" />
-      </div>
-      <div class="section__text" data-aos="fade-up">
-        <p class="section__text__p1" data-en="Hello, I'm" data-he="שלום, אני">Hello, I'm</p>
-        <h1 class="title">Inon Cohen</h1>
-        <p
-          class="section__text__p2"
-          data-en="Electrical & Electronics Engineer | VLSI and AI Specialist"
-          data-he="מהנדס חשמל ואלקטרוניקה | מומחה VLSI ובינה מלאכותית"
-        >
-          Electrical & Electronics Engineer | VLSI and AI Specialist
-        </p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Inon_Cohen_Resume.pdf')"
-            data-en="Download CV"
-            data-he="הורד קורות חיים"
-          >
-            Download CV
-          </button>
-          <button
-            class="btn btn-color-1"
-            onclick="location.href='./#contact'"
-            data-en="Contact Info"
-            data-he="פרטי קשר"
-          >
-            Contact Info
-          </button>
-        </div>
-      </div>
-    </section>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button onclick="toggleLanguage('en')">English</button>
+      <button onclick="toggleLanguage('he')">עברית</button>
+    </div>
 
     <!-- About Section -->
     <section id="about">
-      <p class="section__text__p1" data-en="Get To Know More" data-he="הכירו אותי">Get To Know More</p>
       <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container" data-aos="zoom-in">
@@ -95,12 +84,10 @@
         <div class="about-details-container">
           <div class="text-container" data-aos="fade-up">
             <p
-              data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration. Throughout my career and academic journey, I have demonstrated strong problem-solving skills, innovative thinking, and a passion for creating impactful engineering solutions."
-              data-he="אני מהנדס חשמל ואלקטרוניקה עם ממוצע של 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית, תכנות FPGA ושילוב חומרה ותוכנה. במהלך הקריירה והלימודים שלי פיתחתי יכולות פתרון בעיות, חשיבה יצירתית ותשוקה ליצירת פתרונות הנדסיים בעלי השפעה."
+              data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration."
+              data-he="אני מהנדס חשמל ואלקטרוניקה עם ממוצע של 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית, תכנות FPGA ושילוב חומרה ותוכנה."
             >
-              I am a highly motivated Electrical and Electronics Engineer with a
-              GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and
-              hardware-software integration.
+              I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration.
             </p>
           </div>
         </div>
@@ -109,7 +96,6 @@
 
     <!-- Experience Section -->
     <section id="experience">
-      <p class="section__text__p1" data-en="Explore My" data-he="הכירו את">Explore My</p>
       <h1 class="title" data-en="Experience" data-he="ניסיון">Experience</h1>
       <div class="experience-details-container">
         <div class="details-container">
@@ -123,22 +109,12 @@
               Managed system integration and technical requirements for cutting-edge aerospace projects.
             </p>
           </article>
-          <article>
-            <h3 data-en="Teaching Assistant at Ariel University" data-he="עוזר הוראה באוניברסיטת אריאל">Teaching Assistant at Ariel University</h3>
-            <p
-              data-en="Mentored students in Physics (A, B), improving academic performance and enhancing their understanding."
-              data-he="חנכתי סטודנטים בקורסי פיזיקה (א, ב), שיפרתי את ביצועיהם האקדמיים והעמקתי את הבנתם."
-            >
-              Mentored students in Physics (A, B), improving academic performance and enhancing their understanding.
-            </p>
-          </article>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-      <p class="section__text__p1" data-en="Browse My Recent" data-he="עיינו בפרויקטים שלי">Browse My Recent</p>
       <h1 class="title" data-en="Projects" data-he="פרויקטים">Projects</h1>
       <div class="experience-details-container">
         <div class="details-container color-container">
@@ -163,24 +139,11 @@
             </button>
           </div>
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-2.png" alt="Smart Home System" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title" data-en="Smart Home System" data-he="מערכת בית חכם">Smart Home System</h2>
-          <p
-            data-en="A fully integrated smart home system with custom hardware and software frameworks."
-            data-he="מערכת בית חכם מלאה עם חומרה ותוכנה מותאמת אישית."
-          >
-            A fully integrated smart home system with custom hardware and software frameworks.
-          </p>
-        </div>
       </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-      <p class="section__text__p1" data-en="Technical" data-he="טכני">Technical</p>
       <h1 class="title" data-en="Skills" data-he="כישורים">Skills</h1>
       <div class="skills-container">
         <ul>
@@ -195,7 +158,6 @@
 
     <!-- Contact Section -->
     <section id="contact">
-      <p class="section__text__p1" data-en="Get in Touch" data-he="צור קשר">Get in Touch</p>
       <h1 class="title" data-en="Contact Me" data-he="צור קשר">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
@@ -212,7 +174,7 @@
     <!-- Footer -->
     <footer>
       <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="© 2024 ינון כהן. כל הזכויות שמורות.">
-        Copyright © 2024
+        Copyright ©
       </p>
     </footer>
 
@@ -221,6 +183,5 @@
     <script>
       AOS.init();
     </script>
-    <script src="script.js"></script>
   </body>
 </html>
