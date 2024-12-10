@@ -5,123 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inon Cohen - Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
     <style>
-      /* General Styles */
+      /* General layout styles */
       body {
-        font-family: "Roboto", sans-serif;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
         margin: 0;
         padding: 0;
-        background-color: #f9f9f9;
-        color: #333;
-        line-height: 1.6;
+        box-sizing: border-box;
       }
 
       h1, h2, h3 {
-        margin: 0 0 10px;
+        margin: 0 0 20px;
+        text-align: center;
       }
 
       section {
-        padding: 60px 20px;
+        margin: 50px auto;
+        padding: 20px;
         max-width: 1200px;
-        margin: 0 auto;
-        border-bottom: 1px solid #ddd;
       }
 
-      .title {
-        font-size: 2.5em;
-        font-weight: 700;
+      .text-center {
         text-align: center;
-        margin-bottom: 20px;
-        color: #007bff;
       }
 
-      .section__text__p1 {
-        font-size: 1.2em;
-        color: #555;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-
-      .btn-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-      }
-
-      .btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 1em;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-      }
-
-      .btn-color-1 {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      .btn-color-2 {
-        background-color: #28a745;
-        color: #fff;
-      }
-
-      .btn:hover {
-        transform: translateY(-3px);
-        opacity: 0.9;
-      }
-
-      /* Navigation */
-      nav {
-        background-color: #007bff;
-        padding: 10px 20px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
-      .logo {
-        color: white;
-        font-size: 1.5em;
-        font-weight: bold;
-        display: inline-block;
-      }
-
-      .nav-links {
-        list-style: none;
-        padding: 0;
-        display: inline-flex;
-        gap: 15px;
-        margin: 0;
-        float: right;
-      }
-
-      .nav-links li {
-        display: inline;
-      }
-
-      .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 1em;
-        transition: color 0.2s ease;
-      }
-
-      .nav-links a:hover {
-        color: #ffd700;
-      }
-
-      /* Language Switcher */
+      /* Language switcher styles */
       .language-switcher {
         position: fixed;
         top: 15px;
@@ -132,56 +47,101 @@
       }
 
       .language-switcher button {
-        font-family: "Roboto", sans-serif;
+        font-family: 'Arial', sans-serif;
         font-size: 14px;
         padding: 8px 12px;
         border: none;
         border-radius: 20px;
-        background-color: #fff;
-        color: #007bff;
+        background-color: #007BFF;
+        color: white;
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       .language-switcher button:hover {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #0056b3;
         transform: scale(1.1);
       }
 
       .language-switcher button.active {
         background-color: #28a745;
-        color: #fff;
       }
 
-      /* About Section */
-      .about-container {
+      /* Section container styles */
+      .section-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
         align-items: center;
         justify-content: center;
+        gap: 30px;
+      }
+
+      .section__pic-container {
+        flex: 1;
+        max-width: 300px;
+        text-align: center;
       }
 
       .about-details-container {
-        flex: 1;
+        flex: 2;
+      }
+
+      .skills-container ul {
+        list-style: none;
+        padding: 0;
         text-align: center;
-        padding: 10px;
       }
 
-      .about-pic {
-        max-width: 300px;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      .skills-container ul li {
+        margin: 10px 0;
       }
 
-      /* Footer */
-      footer {
-        background-color: #007bff;
+      .contact-info-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .btn-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 5px;
+      }
+
+      .btn-color-1 {
+        background-color: #007BFF;
         color: white;
+      }
+
+      .btn-color-1:hover {
+        background-color: #0056b3;
+      }
+
+      .btn-color-2 {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .btn-color-2:hover {
+        background-color: #1e7e34;
+      }
+
+      footer {
+        background: #f4f4f4;
         text-align: center;
         padding: 20px 0;
+        margin-top: 50px;
       }
     </style>
     <script>
@@ -206,23 +166,25 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav>
-      <div class="logo">Inon Cohen</div>
-      <ul class="nav-links">
-        <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
-        <li>
-          <a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a>
-        </li>
-        <li>
-          <a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a>
-        </li>
-        <li>
-          <a href="#skills" data-en="Skills" data-he="כישורים">Skills</a>
-        </li>
-        <li>
-          <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
-        </li>
-      </ul>
+    <nav id="desktop-nav">
+      <div class="logo text-center">Inon Cohen</div>
+      <div>
+        <ul class="nav-links text-center">
+          <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+          <li>
+            <a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a>
+          </li>
+          <li>
+            <a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a>
+          </li>
+          <li>
+            <a href="#skills" data-en="Skills" data-he="כישורים">Skills</a>
+          </li>
+          <li>
+            <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Language Switcher -->
@@ -233,69 +195,71 @@
 
     <!-- Profile Section -->
     <section id="profile">
-      <p class="section__text__p1" data-en="Hello, I'm" data-he="שלום, אני">
-        Hello, I'm
-      </p>
-      <h1 class="title">Inon Cohen</h1>
-      <p
-        class="section__text__p2"
-        data-en="Electrical & Electronics Engineer | VLSI and AI Specialist"
-        data-he="מהנדס חשמל ואלקטרוניקה | מומחה VLSI ובינה מלאכותית"
-      >
-        Electrical & Electronics Engineer | VLSI and AI Specialist
-      </p>
-      <div class="btn-container">
-        <button
-          class="btn btn-color-2"
-          onclick="window.open('./assets/Inon_Cohen_Resume.pdf')"
-          data-en="Download CV"
-          data-he="הורד קורות חיים"
+      <div class="text-center" data-aos="fade-up">
+        <p
+          class="section__text__p1"
+          data-en="Hello, I'm"
+          data-he="שלום, אני"
         >
-          Download CV
-        </button>
-        <button
-          class="btn btn-color-1"
-          onclick="location.href='#contact'"
-          data-en="Contact Info"
-          data-he="פרטי קשר"
+          Hello, I'm
+        </p>
+        <h1 class="title">Inon Cohen</h1>
+        <p
+          class="section__text__p2"
+          data-en="Electrical & Electronics Engineer | VLSI and AI Specialist"
+          data-he="מהנדס חשמל ואלקטרוניקה | מומחה VLSI ובינה מלאכותית"
         >
-          Contact Info
-        </button>
+          Electrical & Electronics Engineer | VLSI and AI Specialist
+        </p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Inon_Cohen_Resume.pdf')"
+            data-en="Download CV"
+            data-he="הורד קורות חיים"
+          >
+            Download CV
+          </button>
+          <button
+            class="btn btn-color-1"
+            onclick="location.href='./#contact'"
+            data-en="Contact Info"
+            data-he="פרטי קשר"
+          >
+            Contact Info
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
       <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
-      <div class="about-container">
-        <img
-          src="./assets/about-pic.png"
-          alt="About Picture"
-          class="about-pic"
-          data-aos="zoom-in"
-        />
+      <div class="section-container">
+        <div class="section__pic-container" data-aos="zoom-in">
+          <img src="./assets/about-pic.png" alt="About Picture" class="about-pic" />
+        </div>
         <div class="about-details-container">
-          <p
-            data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration."
-            data-he="אני מהנדס חשמל ואלקטרוניקה עם ממוצע של 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית, תכנות FPGA ושילוב חומרה ותוכנה."
-          >
-            I am a highly motivated Electrical and Electronics Engineer with a
-            GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and
-            hardware-software integration.
-          </p>
+          <div class="text-container" data-aos="fade-up">
+            <p
+              data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration."
+              data-he="אני מהנדס חשמל ואלקטרוניקה עם ממוצע של 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית, תכנות FPGA ושילוב חומרה ותוכנה."
+            >
+              I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p
-        data-en="Copyright © 2024 Inon Cohen. All Rights Reserved."
-        data-he="© 2024 ינון כהן. כל הזכויות שמורות."
-      >
+      <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="© 2024 ינון כהן. כל הזכויות שמורות.">
         Copyright ©
       </p>
     </footer>
+
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       AOS.init();
