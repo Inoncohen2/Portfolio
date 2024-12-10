@@ -14,35 +14,54 @@
     <style>
       /* Language switcher styles */
       .language-switcher {
-        position: absolute;
-        top: 10px;
+        position: fixed;
+        top: 15px;
         right: 20px;
         display: flex;
         gap: 10px;
+        z-index: 1000;
       }
 
       .language-switcher button {
-        padding: 5px 10px;
+        font-family: 'Arial', sans-serif;
         font-size: 14px;
-        border: 1px solid #ccc;
-        background-color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 20px;
+        background-color: #007BFF;
+        color: white;
         cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       .language-switcher button:hover {
-        background-color: #f0f0f0;
+        background-color: #0056b3;
+        transform: scale(1.1);
+      }
+
+      .language-switcher button.active {
+        background-color: #28a745;
       }
     </style>
     <script>
       function toggleLanguage(lang) {
-        const allTexts = document.querySelectorAll("[data-en], [data-he]");
-        allTexts.forEach((el) => {
+        const elements = document.querySelectorAll("[data-en], [data-he]");
+        elements.forEach((el) => {
           el.textContent = el.getAttribute(`data-${lang}`);
         });
         document.documentElement.lang = lang;
+
+        // Highlight active button
+        const buttons = document.querySelectorAll(".language-switcher button");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        document.querySelector(`.language-switcher .${lang}`).classList.add("active");
       }
+
+      // Set default language to English on load
+      document.addEventListener("DOMContentLoaded", () => {
+        toggleLanguage("en");
+      });
     </script>
   </head>
   <body>
@@ -70,17 +89,53 @@
 
     <!-- Language Switcher -->
     <div class="language-switcher">
-      <button onclick="toggleLanguage('en')">English</button>
-      <button onclick="toggleLanguage('he')">עברית</button>
+      <button class="en" onclick="toggleLanguage('en')">English</button>
+      <button class="he" onclick="toggleLanguage('he')">עברית</button>
     </div>
+
+    <!-- Profile Section -->
+    <section id="profile">
+      <div class="section__text" data-aos="fade-up">
+        <p
+          class="section__text__p1"
+          data-en="Hello, I'm"
+          data-he="שלום, אני"
+        >
+          Hello, I'm
+        </p>
+        <h1 class="title">Inon Cohen</h1>
+        <p
+          class="section__text__p2"
+          data-en="Electrical & Electronics Engineer | VLSI and AI Specialist"
+          data-he="מהנדס חשמל ואלקטרוניקה | מומחה VLSI ובינה מלאכותית"
+        >
+          Electrical & Electronics Engineer | VLSI and AI Specialist
+        </p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Inon_Cohen_Resume.pdf')"
+            data-en="Download CV"
+            data-he="הורד קורות חיים"
+          >
+            Download CV
+          </button>
+          <button
+            class="btn btn-color-1"
+            onclick="location.href='./#contact'"
+            data-en="Contact Info"
+            data-he="פרטי קשר"
+          >
+            Contact Info
+          </button>
+        </div>
+      </div>
+    </section>
 
     <!-- About Section -->
     <section id="about">
       <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
       <div class="section-container">
-        <div class="section__pic-container" data-aos="zoom-in">
-          <img src="./assets/about-pic.png" alt="About Picture" class="about-pic" />
-        </div>
         <div class="about-details-container">
           <div class="text-container" data-aos="fade-up">
             <p
@@ -171,8 +226,6 @@
       </div>
     </section>
 
-
-    
     <!-- Footer -->
     <footer>
       <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="© 2024 ינון כהן. כל הזכויות שמורות.">
