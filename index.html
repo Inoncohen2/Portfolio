@@ -29,6 +29,12 @@
         });
       }
     </script>
+    <style>
+      /* Temporary CSS for adjustments */
+      #profile {
+        margin-bottom: 2rem;
+      }
+    </style>
   </head>
   <body>
     <nav id="desktop-nav">
@@ -41,12 +47,9 @@
           <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
         </ul>
       </div>
-      <button id="language-toggle" onclick="toggleLanguage()">עברית</button>
+      <button id="language-toggle" onclick="toggleLanguage()" style="margin-left: 2rem;">עברית</button>
     </nav>
     <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Inon Cohen profile picture" />
-      </div>
       <div class="section__text">
         <p class="section__text__p1" data-en="Hello, I'm" data-he="שלום, אני">Hello, I'm</p>
         <h1 class="title" data-en="Inon Cohen" data-he="ינון כהן">Inon Cohen</h1>
@@ -72,20 +75,11 @@
       <p class="section__text__p1" data-en="Get To Know More" data-he="למידע נוסף">Get To Know More</p>
       <h1 class="title" data-en="About Me" data-he="אודותיי">About Me</h1>
       <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="About Picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="text-container">
-            <p data-en="I am a recent graduate in Electrical and Electronics Engineering with a GPA of 97. I specialize in VLSI, AI systems, and real-time image processing. My skills include designing integrated systems and programming with TensorFlow, OpenCV, and FPGA technologies."
-               data-he="אני בוגר טרי בהנדסת חשמל ואלקטרוניקה עם ממוצע 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית ועיבוד תמונה בזמן אמת. כישורי כוללים תכנון מערכות משולבות ותכנות בטכנולוגיות TensorFlow, OpenCV ו-FPGA.">
-              I am a recent graduate in Electrical and Electronics Engineering with a GPA of 97. I specialize in VLSI, AI systems, and real-time image processing. My skills include designing integrated systems and programming with TensorFlow, OpenCV, and FPGA technologies.
-            </p>
-          </div>
+        <div class="text-container">
+          <p data-en="I am a highly motivated engineer with expertise in VLSI, FPGA programming, AI systems, and real-time image processing. I am currently pursuing my master's degree in learning disabilities while continuing to work on innovative projects combining AI and hardware."
+             data-he="אני מהנדס מוטיבציוני בעל התמחות ב-VLSI, תכנות FPGA, מערכות בינה מלאכותית ועיבוד תמונה בזמן אמת. אני לומד כעת לתואר שני בלקויות למידה וממשיך לעבוד על פרויקטים חדשניים המשלבים AI וחומרה.">
+            I am a highly motivated engineer with expertise in VLSI, FPGA programming, AI systems, and real-time image processing. I am currently pursuing my master's degree in learning disabilities while continuing to work on innovative projects combining AI and hardware.
+          </p>
         </div>
       </div>
     </section>
@@ -117,28 +111,11 @@
       <h1 class="title" data-en="Projects" data-he="פרויקטים">Projects</h1>
       <div class="experience-details-container">
         <div class="details-container color-container">
-          <div class="article-container">
-            <img
-              src="./assets/project-1.png"
-              alt="BalloonHunterPi"
-              class="project-img"
-            />
-          </div>
           <h2 class="experience-sub-title project-title" data-en="BalloonHunterPi" data-he="BalloonHunterPi">BalloonHunterPi</h2>
           <p data-en="FPGA-based system for real-time balloon detection and laser alignment using YOLOv5."
              data-he="מערכת מבוססת FPGA לזיהוי בלונים בזמן אמת והתאמת לייזר באמצעות YOLOv5.">
             FPGA-based system for real-time balloon detection and laser alignment using YOLOv5.
           </p>
-          <div class="btn-container">
-            <button
-              class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/Inoncohen2/TensorFlow-Lite-Balloon-Detection-on-Raspberry-Pi'"
-              data-en="GitHub"
-              data-he="גיטהאב"
-            >
-              GitHub
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -147,20 +124,7 @@
       <h1 class="title" data-en="Contact Me" data-he="צרו קשר">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email Icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:InonCohen98@gmail.com" data-en="InonCohen98@gmail.com" data-he="InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn Icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/inoncohen98" data-en="LinkedIn" data-he="לינקדאין">LinkedIn</a></p>
+          <p><a href="mailto:InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
         </div>
       </div>
     </section>
