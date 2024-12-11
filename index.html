@@ -7,114 +7,51 @@
     <title>Inon Cohen - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    />
-    <style>
-      /* Language switcher styles */
-      .language-switcher {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        display: flex;
-        gap: 10px;
-        z-index: 1000;
-      }
-
-      .language-switcher button {
-        font-family: 'Arial', sans-serif;
-        font-size: 14px;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 20px;
-        background-color: #007BFF;
-        color: white;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .language-switcher button:hover {
-        background-color: #0056b3;
-        transform: scale(1.1);
-      }
-
-      .language-switcher button.active {
-        background-color: #28a745;
-      }
-
-      /* Reduce spacing between sections */
-      section {
-        margin: 40px 0;
-      }
-    </style>
     <script>
-      function toggleLanguage(lang) {
-        const elements = document.querySelectorAll("[data-en], [data-he]");
-        elements.forEach((el) => {
-          el.textContent = el.getAttribute(`data-${lang}`);
+      function toggleLanguage() {
+        const htmlTag = document.documentElement;
+        const langButton = document.getElementById("language-toggle");
+
+        if (htmlTag.lang === "en") {
+          htmlTag.lang = "he";
+          document.body.classList.add("rtl");
+          langButton.innerText = "English";
+        } else {
+          htmlTag.lang = "en";
+          document.body.classList.remove("rtl");
+          langButton.innerText = "עברית";
+        }
+
+        // Update all text elements
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          const isEnglish = htmlTag.lang === "en";
+          el.innerText = isEnglish ? el.getAttribute("data-en") : el.getAttribute("data-he");
         });
-        document.documentElement.lang = lang;
-
-        // Highlight active button
-        const buttons = document.querySelectorAll(".language-switcher button");
-        buttons.forEach((btn) => btn.classList.remove("active"));
-        document.querySelector(`.language-switcher .${lang}`).classList.add("active");
       }
-
-      // Set default language to English on load
-      document.addEventListener("DOMContentLoaded", () => {
-        toggleLanguage("en");
-      });
     </script>
   </head>
   <body>
-    <!-- Navigation -->
     <nav id="desktop-nav">
-      <div class="logo">Inon Cohen</div>
+      <div class="logo" data-en="Inon Cohen" data-he="ינון כהן">Inon Cohen</div>
       <div>
         <ul class="nav-links">
           <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
-          <li>
-            <a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a>
-          </li>
-          <li>
-            <a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a>
-          </li>
-          <li>
-            <a href="#skills" data-en="Skills" data-he="כישורים">Skills</a>
-          </li>
-          <li>
-            <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
-          </li>
+          <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
+          <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
+          <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
         </ul>
       </div>
+      <button id="language-toggle" onclick="toggleLanguage()">עברית</button>
     </nav>
-
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-      <button class="en" onclick="toggleLanguage('en')">English</button>
-      <button class="he" onclick="toggleLanguage('he')">עברית</button>
-    </div>
-
-    <!-- Profile Section -->
     <section id="profile">
-      <div class="section__text" data-aos="fade-up">
-        <p
-          class="section__text__p1"
-          data-en="Hello, I'm"
-          data-he="שלום, אני"
-        >
-          Hello, I'm
-        </p>
-        <h1 class="title">Inon Cohen</h1>
-        <p
-          class="section__text__p2"
-          data-en="Electrical & Electronics Engineer | VLSI and AI Specialist"
-          data-he="מהנדס חשמל ואלקטרוניקה | מומחה VLSI ובינה מלאכותית"
-        >
-          Electrical & Electronics Engineer | VLSI and AI Specialist
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Inon Cohen profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1" data-en="Hello, I'm" data-he="שלום, אני">Hello, I'm</p>
+        <h1 class="title" data-en="Inon Cohen" data-he="ינון כהן">Inon Cohen</h1>
+        <p class="section__text__p2" data-en="Electrical & Electronics Engineer, specializing in VLSI and AI Systems" data-he="מהנדס חשמל ואלקטרוניקה, מתמחה ב-VLSI ומערכות בינה מלאכותית">
+          Electrical & Electronics Engineer, specializing in VLSI and AI Systems
         </p>
         <div class="btn-container">
           <button
@@ -125,78 +62,79 @@
           >
             Download CV
           </button>
-          <button
-            class="btn btn-color-1"
-            onclick="location.href='./#contact'"
-            data-en="Contact Info"
-            data-he="פרטי קשר"
-          >
+          <button class="btn btn-color-1" onclick="location.href='./#contact'" data-en="Contact Info" data-he="פרטי יצירת קשר">
             Contact Info
           </button>
         </div>
       </div>
     </section>
-
-    <!-- About Section -->
     <section id="about">
-      <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
+      <p class="section__text__p1" data-en="Get To Know More" data-he="למידע נוסף">Get To Know More</p>
+      <h1 class="title" data-en="About Me" data-he="אודותיי">About Me</h1>
       <div class="section-container">
-        <div class="section__pic-container" data-aos="zoom-in">
-          <img src="./assets/about-pic.png" alt="About Picture" class="about-pic" />
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="About Picture"
+            class="about-pic"
+          />
         </div>
         <div class="about-details-container">
-          <div class="text-container" data-aos="fade-up">
-            <p
-              data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration."
-              data-he="אני מהנדס חשמל ואלקטרוניקה עם ממוצע של 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית, תכנות FPGA ושילוב חומרה ותוכנה."
-            >
-              I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration.
+          <div class="text-container">
+            <p data-en="I am a recent graduate in Electrical and Electronics Engineering with a GPA of 97. I specialize in VLSI, AI systems, and real-time image processing. My skills include designing integrated systems and programming with TensorFlow, OpenCV, and FPGA technologies."
+               data-he="אני בוגר טרי בהנדסת חשמל ואלקטרוניקה עם ממוצע 97. אני מתמחה ב-VLSI, מערכות בינה מלאכותית ועיבוד תמונה בזמן אמת. כישורי כוללים תכנון מערכות משולבות ותכנות בטכנולוגיות TensorFlow, OpenCV ו-FPGA.">
+              I am a recent graduate in Electrical and Electronics Engineering with a GPA of 97. I specialize in VLSI, AI systems, and real-time image processing. My skills include designing integrated systems and programming with TensorFlow, OpenCV, and FPGA technologies.
             </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Experience Section -->
     <section id="experience">
-      <h1 class="title" data-en="Experience" data-he="ניסיון">Experience</h1>
+      <p class="section__text__p1" data-en="Explore My" data-he="גלו את">Explore My</p>
+      <h1 class="title" data-en="Experience" data-he="הניסיון שלי">Experience</h1>
       <div class="experience-details-container">
         <div class="details-container">
           <h2 class="experience-sub-title" data-en="Professional Experience" data-he="ניסיון מקצועי">Professional Experience</h2>
           <article>
             <h3 data-en="System Engineer at IAI" data-he="מהנדס מערכות בתעשייה האווירית">System Engineer at IAI</h3>
-            <p
-              data-en="Managed system integration and technical requirements for cutting-edge aerospace projects."
-              data-he="ניהול שילוב מערכות ודרישות טכניות בפרויקטים מתקדמים בתחום האוויר והחלל."
-            >
-              Managed system integration and technical requirements for cutting-edge aerospace projects.
+            <p data-en="Managed system integrations and technical requirements for advanced aerospace projects."
+               data-he="ניהול אינטגרציות מערכת ודרישות טכניות לפרויקטים מתקדמים בתחום האוויר והחלל.">
+              Managed system integrations and technical requirements for advanced aerospace projects.
+            </p>
+          </article>
+          <article>
+            <h3 data-en="Teaching Assistant at Ariel University" data-he="עוזר הוראה באוניברסיטת אריאל">Teaching Assistant at Ariel University</h3>
+            <p data-en="Guided students in Physics courses, improving their performance through personalized tutoring."
+               data-he="הנחיית סטודנטים בקורסי פיזיקה, ושיפור הישגיהם באמצעות תמיכה אישית.">
+              Guided students in Physics courses, improving their performance through personalized tutoring.
             </p>
           </article>
         </div>
       </div>
     </section>
-
-    <!-- Projects Section -->
     <section id="projects">
+      <p class="section__text__p1" data-en="Browse My Recent" data-he="עיינו בפרויקטים האחרונים שלי">Browse My Recent</p>
       <h1 class="title" data-en="Projects" data-he="פרויקטים">Projects</h1>
       <div class="experience-details-container">
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./assets/project-1.png" alt="BalloonHunterPi" class="project-img" />
+            <img
+              src="./assets/project-1.png"
+              alt="BalloonHunterPi"
+              class="project-img"
+            />
           </div>
           <h2 class="experience-sub-title project-title" data-en="BalloonHunterPi" data-he="BalloonHunterPi">BalloonHunterPi</h2>
-          <p
-            data-en="An FPGA-based system for real-time balloon detection and targeting using YOLOv5 and servo motors."
-            data-he="מערכת מבוססת FPGA לאיתור בלונים בזמן אמת והתאמת מטרה באמצעות YOLOv5 ומנועי סרוו."
-          >
-            An FPGA-based system for real-time balloon detection and targeting using YOLOv5 and servo motors.
+          <p data-en="FPGA-based system for real-time balloon detection and laser alignment using YOLOv5."
+             data-he="מערכת מבוססת FPGA לזיהוי בלונים בזמן אמת והתאמת לייזר באמצעות YOLOv5.">
+            FPGA-based system for real-time balloon detection and laser alignment using YOLOv5.
           </p>
           <div class="btn-container">
             <button
               class="btn btn-color-2 project-btn"
               onclick="location.href='https://github.com/Inoncohen2/TensorFlow-Lite-Balloon-Detection-on-Raspberry-Pi'"
               data-en="GitHub"
-              data-he="GitHub"
+              data-he="גיטהאב"
             >
               GitHub
             </button>
@@ -204,47 +142,32 @@
         </div>
       </div>
     </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <h1 class="title" data-en="Skills" data-he="כישורים">Skills</h1>
-      <div class="skills-container">
-        <ul>
-          <li data-en="VLSI Design & FPGA Programming (Verilog, VHDL)" data-he="תכנון VLSI ותכנות FPGA (Verilog, VHDL)">VLSI Design & FPGA Programming (Verilog, VHDL)</li>
-          <li data-en="AI & Image Processing (YOLOv5, OpenCV, TensorFlow)" data-he="AI ועיבוד תמונה (YOLOv5, OpenCV, TensorFlow)">AI & Image Processing (YOLOv5, OpenCV, TensorFlow)</li>
-          <li data-en="Embedded Systems (Arduino, Raspberry Pi)" data-he="מערכות משובצות (Arduino, Raspberry Pi)">Embedded Systems (Arduino, Raspberry Pi)</li>
-          <li data-en="System Integration & Troubleshooting" data-he="שילוב מערכות ופתרון בעיות">System Integration & Troubleshooting</li>
-          <li data-en="Programming Languages (Python, C++, MATLAB)" data-he="שפות תכנות (Python, C++, MATLAB)">Programming Languages (Python, C++, MATLAB)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
     <section id="contact">
-      <h1 class="title" data-en="Contact Me" data-he="צור קשר">Contact Me</h1>
+      <p class="section__text__p1" data-en="Get in Touch" data-he="צרו קשר">Get in Touch</p>
+      <h1 class="title" data-en="Contact Me" data-he="צרו קשר">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./assets/email.png" alt="Email Icon" class="icon contact-icon email-icon" />
+          <img
+            src="./assets/email.png"
+            alt="Email Icon"
+            class="icon contact-icon email-icon"
+          />
           <p><a href="mailto:InonCohen98@gmail.com" data-en="InonCohen98@gmail.com" data-he="InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/linkedin.png" alt="LinkedIn Icon" class="icon contact-icon" />
-          <p><a href="https://www.linkedin.com/in/inoncohen98" data-en="LinkedIn" data-he="LinkedIn">LinkedIn</a></p>
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn Icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/inoncohen98" data-en="LinkedIn" data-he="לינקדאין">LinkedIn</a></p>
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
     <footer>
-      <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="© 2024 ינון כהן. כל הזכויות שמורות.">
-        Copyright ©
+      <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="זכויות יוצרים © 2024 ינון כהן. כל הזכויות שמורות.">
+        Copyright © 2024 Inon Cohen. All Rights Reserved.
       </p>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>
