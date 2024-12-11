@@ -7,7 +7,58 @@
     <title>Inon Cohen - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Styling for the Skills Carousel */
+      .carousel-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem auto;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel {
+        display: flex;
+        justify-content: center;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .carousel-item {
+        min-width: 100%;
+        font-size: 1.5rem;
+        padding: 1rem;
+        color: white;
+        background: #3f51b5;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-item:nth-child(even) {
+        background: #673ab7;
+      }
+
+      .carousel-item:nth-child(odd) {
+        background: #2196f3;
+      }
+    </style>
     <script>
+      let currentSlide = 0;
+
+      function startCarousel() {
+        const carousel = document.querySelector(".carousel");
+        const items = document.querySelectorAll(".carousel-item");
+        const totalItems = items.length;
+
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % totalItems;
+          const offset = -currentSlide * 100;
+          carousel.style.transform = `translateX(${offset}%)`;
+        }, 3000); // Change every 3 seconds
+      }
+
+      document.addEventListener("DOMContentLoaded", startCarousel);
+
       function toggleLanguage() {
         const htmlTag = document.documentElement;
         const langButton = document.getElementById("language-toggle");
@@ -29,47 +80,9 @@
         });
       }
     </script>
-    <style>
-      /* Temporary CSS for adjustments */
-      #profile {
-        margin-bottom: 1rem; /* Reduce gap */
-        height: auto;
-        padding: 1rem 0; /* Minimal padding */
-      }
-
-      /* Hide the first image */
-      .section__pic-container img {
-        display: none;
-      }
-
-      /* Fix image display issues */
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-
-      /* Align text beautifully */
-      .section__text {
-        text-align: center;
-        margin: auto;
-        max-width: 800px;
-      }
-
-      #contact .contact-info-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      #contact .icon {
-        width: 2rem;
-        height: 2rem;
-      }
-    </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav id="desktop-nav">
       <div class="logo" data-en="Inon Cohen" data-he="ינון כהן">Inon Cohen</div>
       <div>
@@ -81,8 +94,10 @@
           <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
         </ul>
       </div>
-      <button id="language-toggle" onclick="toggleLanguage()" style="margin-left: 2rem;">עברית</button>
+      <button id="language-toggle" onclick="toggleLanguage()">עברית</button>
     </nav>
+
+    <!-- Profile Section -->
     <section id="profile">
       <div class="section__text">
         <p class="section__text__p1" data-en="Hello, I'm" data-he="שלום, אני">Hello, I'm</p>
@@ -99,14 +114,15 @@
           >
             Download CV
           </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'" data-en="Contact Info" data-he="פרטי יצירת קשר">
+          <button class="btn btn-color-1" onclick="location.href='#contact'" data-en="Contact Info" data-he="פרטי יצירת קשר">
             Contact Info
           </button>
         </div>
       </div>
     </section>
+
+    <!-- About Section -->
     <section id="about">
-      <p class="section__text__p1" data-en="Get To Know More" data-he="למידע נוסף">Get To Know More</p>
       <h1 class="title" data-en="About Me" data-he="אודותיי">About Me</h1>
       <div class="section-container">
         <div class="text-container">
@@ -117,46 +133,44 @@
         </div>
       </div>
     </section>
+
+    <!-- Skills Section -->
     <section id="skills">
-      <p class="section__text__p1" data-en="Explore My" data-he="גלו את">Explore My</p>
       <h1 class="title" data-en="Skills" data-he="כישורים">Skills</h1>
-      <ul>
-        <li data-en="VLSI Design" data-he="תכנון VLSI">VLSI Design</li>
-        <li data-en="FPGA Programming" data-he="תכנות FPGA">FPGA Programming</li>
-        <li data-en="Real-time Image Processing" data-he="עיבוד תמונה בזמן אמת">Real-time Image Processing</li>
-        <li data-en="TensorFlow & OpenCV" data-he="TensorFlow ו-OpenCV">TensorFlow & OpenCV</li>
-        <li data-en="System Integration" data-he="אינטגרציה מערכתית">System Integration</li>
-      </ul>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-item" data-en="VLSI Design" data-he="תכנון VLSI">VLSI Design</div>
+          <div class="carousel-item" data-en="FPGA Programming" data-he="תכנות FPGA">FPGA Programming</div>
+          <div class="carousel-item" data-en="AI Systems" data-he="מערכות בינה מלאכותית">AI Systems</div>
+          <div class="carousel-item" data-en="Real-time Image Processing" data-he="עיבוד תמונה בזמן אמת">Real-time Image Processing</div>
+          <div class="carousel-item" data-en="TensorFlow & OpenCV" data-he="TensorFlow ו-OpenCV">TensorFlow & OpenCV</div>
+        </div>
+      </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects">
-      <p class="section__text__p1" data-en="Browse My Recent" data-he="עיינו בפרויקטים האחרונים שלי">Browse My Recent</p>
       <h1 class="title" data-en="Projects" data-he="פרויקטים">Projects</h1>
-      <div class="experience-details-container">
-        <div class="details-container color-container">
-          <h2 class="experience-sub-title project-title" data-en="BalloonHunterPi" data-he="BalloonHunterPi">BalloonHunterPi</h2>
+      <div class="projects-container">
+        <div class="project">
+          <h2 data-en="BalloonHunterPi" data-he="BalloonHunterPi">BalloonHunterPi</h2>
           <p data-en="FPGA-based system for real-time balloon detection and laser alignment using YOLOv5."
              data-he="מערכת מבוססת FPGA לזיהוי בלונים בזמן אמת והתאמת לייזר באמצעות YOLOv5.">
             FPGA-based system for real-time balloon detection and laser alignment using YOLOv5.
           </p>
         </div>
-        <div class="details-container color-container">
-          <h2 class="experience-sub-title project-title" data-en="Smart Home System" data-he="מערכת בית חכם">Smart Home System</h2>
-          <p data-en="Designed and implemented a fully functional smart home with integrated hardware and software systems."
+        <div class="project">
+          <h2 data-en="Smart Home System" data-he="מערכת בית חכם">Smart Home System</h2>
+          <p data-en="Designed and implemented a fully functional smart home with integrated hardware and software."
              data-he="תכננתי וביצעתי מערכת בית חכם משולבת חומרה ותוכנה.">
-            Designed and implemented a fully functional smart home with integrated hardware and software systems.
-          </p>
-        </div>
-        <div class="details-container color-container">
-          <h2 class="experience-sub-title project-title" data-en="Water Bar System" data-he="מערכת בר מים">Water Bar System</h2>
-          <p data-en="Managed and implemented a water bar system using Arduino, Multisim, and PSIM."
-             data-he="ניהלתי וביצעתי מערכת בר מים באמצעות Arduino, Multisim, ו-PSIM.">
-            Managed and implemented a water bar system using Arduino, Multisim, and PSIM.
+            Designed and implemented a fully functional smart home with integrated hardware and software.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- Contact Section -->
     <section id="contact">
-      <p class="section__text__p1" data-en="Get in Touch" data-he="צרו קשר">Get in Touch</p>
       <h1 class="title" data-en="Contact Me" data-he="צרו קשר">Contact Me</h1>
       <div class="contact-info-container">
         <img src="./assets/linkedin.png" alt="LinkedIn Icon" class="icon" />
@@ -165,10 +179,5 @@
         </p>
       </div>
     </section>
-    <footer>
-      <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="זכויות יוצרים © 2024 ינון כהן. כל הזכויות שמורות.">
-        Copyright © 2024 Inon Cohen. All Rights Reserved.
-      </p>
-    </footer>
   </body>
 </html>
