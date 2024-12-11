@@ -430,3 +430,23 @@ footer {
 footer p {
   text-align: center;
 }
+/* Language Toggle Button */
+#language-toggle {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+}
+
+/* Reduce spacing between sections */
+section {
+  padding: 4vh 0; /* Reduce vertical padding */
+}
+
+/* Adjust spacing for Profile section */
+#profile {
+  margin-bottom: 2rem; /* Smaller margin between Profile and the next section */
+}
