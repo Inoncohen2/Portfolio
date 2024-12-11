@@ -11,19 +11,19 @@
   </head>
   <body>
     <!-- Language Toggle Button -->
-    <button id="language-toggle" class="btn btn-color-1" onclick="toggleLanguage()">עברית</button>
+    <div id="language-toggle-container">
+      <button id="language-toggle" class="btn">עברית</button>
+    </div>
 
     <!-- Navigation -->
     <nav id="desktop-nav">
       <div class="logo" data-en="Inon Cohen" data-he="ינון כהן">Inon Cohen</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
-          <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
-          <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
-          <li><a href="#contact" data-en="Contact" data-he="יצירת קשר">Contact</a></li>
-        </ul>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+        <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
+        <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
+        <li><a href="#contact" data-en="Contact" data-he="יצירת קשר">Contact</a></li>
+      </ul>
     </nav>
 
     <!-- Profile Section -->
@@ -100,88 +100,8 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <p class="section__text__p1" data-en="Browse My Recent" data-he="פרויקטים אחרונים שלי">Browse My Recent</p>
-      <h1 class="title" data-en="Projects" data-he="פרויקטים">Projects</h1>
-      <div class="experience-details-container">
-
-        <!-- BalloonHunterPi -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-balloonhunterpi.png" alt="BalloonHunterPi" class="project-img" />
-          </div>
-          <h2 data-en="BalloonHunterPi" data-he="BalloonHunterPi">BalloonHunterPi</h2>
-          <p data-en="An autonomous system for real-time balloon detection and interception using AI and FPGA." data-he="מערכת אוטונומית לזיהוי בלונים בזמן אמת וחיסולם, תוך שימוש בבינה מלאכותית ו-FPGA.">
-            An autonomous system for real-time balloon detection and interception using AI and FPGA.
-          </p>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Inoncohen2/TensorFlow-Lite-Balloon-Detection-on-Raspberry-Pi'" data-en="GitHub" data-he="GitHub">
-            GitHub
-          </button>
-        </div>
-
-        <!-- Smart Home -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-smart-home.png" alt="Smart Home" class="project-img" />
-          </div>
-          <h2 data-en="Smart Home System" data-he="מערכת בית חכם">Smart Home System</h2>
-          <p data-en="A smart home system with a custom hardware-software framework for automation." data-he="מערכת בית חכם הכוללת מסגרת מותאמת אישית של חומרה ותוכנה לאוטומציה.">
-            A smart home system with a custom hardware-software framework for automation.
-          </p>
-        </div>
-
-        <!-- Distance Measurement -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-distance-sensor.png" alt="Distance Measurement" class="project-img" />
-          </div>
-          <h2 data-en="Distance Measurement Sensor" data-he="חיישן למדידת מרחק">Distance Measurement Sensor</h2>
-          <p data-en="An Arduino-based sensor for measuring distances using sound waves and motion equations." data-he="חיישן מבוסס Arduino למדידת מרחק באמצעות גלי קול ומשוואות תנועה.">
-            An Arduino-based sensor for measuring distances using sound waves and motion equations.
-          </p>
-        </div>
-
-        <!-- Water Bar -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-water-bar.png" alt="Smart Water Bar" class="project-img" />
-          </div>
-          <h2 data-en="Smart Water Bar" data-he="בר מים חכם">Smart Water Bar</h2>
-          <p data-en="A water bar project implemented using Arduino, Multisim, and PSIM tools." data-he="פרויקט בר מים חכם שהוטמע באמצעות Arduino, Multisim ו-PSIM.">
-            A water bar project implemented using Arduino, Multisim, and PSIM tools.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <p class="section__text__p1" data-en="Get in Touch" data-he="צרו קשר">Get in Touch</p>
-      <h1 class="title" data-en="Contact Me" data-he="יצירת קשר">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-          <p><a href="mailto:InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
-          <p><a href="https://www.linkedin.com/in/inoncohen98">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
-          <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
-          <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
-          <li><a href="#contact" data-en="Contact" data-he="יצירת קשר">Contact</a></li>
-        </ul>
-      </nav>
       <p data-en="Copyright © 2024 Inon Cohen. All Rights Reserved." data-he="כל הזכויות שמורות © 2024 ינון כהן.">
         Copyright © 2024 Inon Cohen. All Rights Reserved.
       </p>
