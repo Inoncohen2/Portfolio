@@ -44,27 +44,9 @@
         background-color: #28a745;
       }
 
-      /* Section spacing */
+      /* Reduce spacing between sections */
       section {
-        margin: 60px 0;
-      }
-
-      /* Fix about section spacing */
-      .about-details-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .about-pic {
-        max-width: 300px;
-        border-radius: 10px;
-      }
-
-      .text-container p {
-        margin: 10px 0;
-        line-height: 1.6;
+        margin: 40px 0;
       }
     </style>
     <script>
@@ -159,8 +141,10 @@
     <section id="about">
       <h1 class="title" data-en="About Me" data-he="אודות">About Me</h1>
       <div class="section-container">
-        <div class="about-details-container">
+        <div class="section__pic-container" data-aos="zoom-in">
           <img src="./assets/about-pic.png" alt="About Picture" class="about-pic" />
+        </div>
+        <div class="about-details-container">
           <div class="text-container" data-aos="fade-up">
             <p
               data-en="I am a highly motivated Electrical and Electronics Engineer with a GPA of 97. I specialize in VLSI, AI systems, FPGA programming, and hardware-software integration."
