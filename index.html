@@ -32,7 +32,40 @@
     <style>
       /* Temporary CSS for adjustments */
       #profile {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem; /* Reduce gap */
+        height: auto;
+        padding: 1rem 0; /* Minimal padding */
+      }
+
+      /* Hide the first image */
+      .section__pic-container img {
+        display: none;
+      }
+
+      /* Fix image display issues */
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Align text beautifully */
+      .section__text {
+        text-align: center;
+        margin: auto;
+        max-width: 800px;
+      }
+
+      #contact .contact-info-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      #contact .icon {
+        width: 2rem;
+        height: 2rem;
       }
     </style>
   </head>
@@ -42,6 +75,7 @@
       <div>
         <ul class="nav-links">
           <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+          <li><a href="#skills" data-en="Skills" data-he="כישורים">Skills</a></li>
           <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
           <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
           <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
@@ -83,28 +117,16 @@
         </div>
       </div>
     </section>
-    <section id="experience">
+    <section id="skills">
       <p class="section__text__p1" data-en="Explore My" data-he="גלו את">Explore My</p>
-      <h1 class="title" data-en="Experience" data-he="הניסיון שלי">Experience</h1>
-      <div class="experience-details-container">
-        <div class="details-container">
-          <h2 class="experience-sub-title" data-en="Professional Experience" data-he="ניסיון מקצועי">Professional Experience</h2>
-          <article>
-            <h3 data-en="System Engineer at IAI" data-he="מהנדס מערכות בתעשייה האווירית">System Engineer at IAI</h3>
-            <p data-en="Managed system integrations and technical requirements for advanced aerospace projects."
-               data-he="ניהול אינטגרציות מערכת ודרישות טכניות לפרויקטים מתקדמים בתחום האוויר והחלל.">
-              Managed system integrations and technical requirements for advanced aerospace projects.
-            </p>
-          </article>
-          <article>
-            <h3 data-en="Teaching Assistant at Ariel University" data-he="עוזר הוראה באוניברסיטת אריאל">Teaching Assistant at Ariel University</h3>
-            <p data-en="Guided students in Physics courses, improving their performance through personalized tutoring."
-               data-he="הנחיית סטודנטים בקורסי פיזיקה, ושיפור הישגיהם באמצעות תמיכה אישית.">
-              Guided students in Physics courses, improving their performance through personalized tutoring.
-            </p>
-          </article>
-        </div>
-      </div>
+      <h1 class="title" data-en="Skills" data-he="כישורים">Skills</h1>
+      <ul>
+        <li data-en="VLSI Design" data-he="תכנון VLSI">VLSI Design</li>
+        <li data-en="FPGA Programming" data-he="תכנות FPGA">FPGA Programming</li>
+        <li data-en="Real-time Image Processing" data-he="עיבוד תמונה בזמן אמת">Real-time Image Processing</li>
+        <li data-en="TensorFlow & OpenCV" data-he="TensorFlow ו-OpenCV">TensorFlow & OpenCV</li>
+        <li data-en="System Integration" data-he="אינטגרציה מערכתית">System Integration</li>
+      </ul>
     </section>
     <section id="projects">
       <p class="section__text__p1" data-en="Browse My Recent" data-he="עיינו בפרויקטים האחרונים שלי">Browse My Recent</p>
@@ -117,15 +139,30 @@
             FPGA-based system for real-time balloon detection and laser alignment using YOLOv5.
           </p>
         </div>
+        <div class="details-container color-container">
+          <h2 class="experience-sub-title project-title" data-en="Smart Home System" data-he="מערכת בית חכם">Smart Home System</h2>
+          <p data-en="Designed and implemented a fully functional smart home with integrated hardware and software systems."
+             data-he="תכננתי וביצעתי מערכת בית חכם משולבת חומרה ותוכנה.">
+            Designed and implemented a fully functional smart home with integrated hardware and software systems.
+          </p>
+        </div>
+        <div class="details-container color-container">
+          <h2 class="experience-sub-title project-title" data-en="Water Bar System" data-he="מערכת בר מים">Water Bar System</h2>
+          <p data-en="Managed and implemented a water bar system using Arduino, Multisim, and PSIM."
+             data-he="ניהלתי וביצעתי מערכת בר מים באמצעות Arduino, Multisim, ו-PSIM.">
+            Managed and implemented a water bar system using Arduino, Multisim, and PSIM.
+          </p>
+        </div>
       </div>
     </section>
     <section id="contact">
       <p class="section__text__p1" data-en="Get in Touch" data-he="צרו קשר">Get in Touch</p>
       <h1 class="title" data-en="Contact Me" data-he="צרו קשר">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <p><a href="mailto:InonCohen98@gmail.com">InonCohen98@gmail.com</a></p>
-        </div>
+      <div class="contact-info-container">
+        <img src="./assets/linkedin.png" alt="LinkedIn Icon" class="icon" />
+        <p>
+          <a href="https://www.linkedin.com/in/inoncohen98" target="_blank" data-en="Connect on LinkedIn" data-he="התחברו בלינקדאין">Connect on LinkedIn</a>
+        </p>
       </div>
     </section>
     <footer>
